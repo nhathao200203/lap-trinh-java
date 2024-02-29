@@ -1,0 +1,135 @@
+// bai1 ngày19/1/2024
+console.log(typeof"Hello World");
+var x=5;
+var y=["Monday" , "Tuesday" ,   "Wednesday" , "Thursday" , "Friday" , "Saturday" , "Sunday"];
+switch (x) {
+    case 0:
+      console.log(y[0]);
+      break;
+    case 1:
+      console.log(y[1]);
+      break;
+    case 2:
+      console.log(y[2]);
+      break;
+    case 3:
+      console.log(y[3]);
+      break;
+    case 4:
+      console.log(y[4]);
+      break;
+    case 5:
+      console.log(y[5]);
+      break;
+    case 6:
+      console.log(y[6]);
+      break;
+    default:
+      console.log("Giá trị chỉ mục không hợp lệ");
+      break;
+  }
+
+  // bai2
+  function isPrime(number) {
+    // Kiểm tra các trường hợp đặc biệt
+    if (number <= 1) {
+      return false;
+    }
+    if (number <= 3) {
+      return true;
+    }
+  
+    // Kiểm tra xem số có chia hết cho các số từ 2 đến căn bậc hai của số đó hay không
+    const limit = Math.sqrt(number);
+    for (let i = 2; i <= limit; i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+  
+    return true;
+  }
+  
+  // Sử dụng hàm để kiểm tra một số
+  const numberToCheck = 19;
+  if (isPrime(numberToCheck)) {
+    console.log(numberToCheck + " là số nguyên tố.");
+  } else {
+    console.log(numberToCheck + " không là số nguyên tố.");
+  }
+
+  // bai3
+  const matrix = [
+    [1, 1, 1],
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+];
+  //  in ma trận
+    for (let i = 0; i < matrix.length; i++) {
+      console.log(matrix[i].join(' '));
+    } 
+
+  // bai4: hien thi ma tran 2 chieu
+  const matran = [
+    [1, 1, 0],
+    [1, 0, 1],
+    [0, 1, 1],
+    [0, 0, 0]
+  ];
+  
+  for (let i = 0; i < matran.length; i++) {
+    let row = '';
+    for (let j = 0; j < matran[i].length; j++) {
+      row += matran[i][j] + ' ';
+    }
+    console.log(row);
+  }
+
+  // bai5,6,7,8
+  function login() {
+    var email = emailInput.value;
+    var password = passwordInput.value;
+  
+    if (email === "") {
+      alert("Vui lòng nhập địa chỉ email!");
+      return;
+    }
+  
+    // Kiểm tra định dạng email
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert("Địa chỉ email không đúng định dạng!");
+      return;
+    }
+  
+    if (password === "") {
+      alert("Vui lòng nhập mật khẩu!");
+      return;
+    }
+  
+    // Xử lý đăng nhập ở đây
+    if (email === "nhathao2003@gmail.com" && password === "123456") {
+      alert("Đăng nhập thành công!");
+      emailInput.value = ""; // Xóa nội dung email
+      passwordInput.value = ""; // Xóa nội dung mật khẩu
+    } else {
+      alert("Email hoặc mật khẩu không chính xác!");
+      passwordInput.value = ""; // Xóa nội dung mật khẩu nếu không chính xác
+    }
+  }
+  
+  var emailInput = document.createElement("input");
+  emailInput.type = "text";
+  emailInput.placeholder = "Email";
+  document.body.appendChild(emailInput);
+  
+  var passwordInput = document.createElement("input");
+  passwordInput.type = "password";
+  passwordInput.placeholder = "Mật khẩu";
+  document.body.appendChild(passwordInput);
+  
+  var loginButton = document.createElement("button");
+  loginButton.innerHTML = "Đăng nhập";
+  loginButton.addEventListener("click", login); // Gọi hàm login khi nhấp vào nút "Đăng nhập"
+  document.body.appendChild(loginButton);
